@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+
 class WeatherViewController: UIViewController {
 
     @IBOutlet weak var conditionImageView: UIImageView!
@@ -16,22 +17,19 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
     var weatherManager = WeatherManager()
-    let locationManager = CLLocationManager()//携帯電話の現在のGPS位置情報を取得する役割
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()//ユーザーに許可を求めるポップアップが画面に表示される
+        locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
         
         weatherManager.delegate = self
         searchTextField.delegate = self
     }
-    @IBAction func locationPressed(_ sender: UIButton) {
-        locationManager.requestLocation()
-    }
+    
 }
 
 //MARK: - UITextFieldDelegatea
@@ -76,7 +74,6 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
         }
-        
     }
     
     func didFailWithError(error: Error) {
@@ -87,6 +84,11 @@ extension WeatherViewController: WeatherManagerDelegate {
 //MARK: - CLLocationManagerDelegate
 
 extension WeatherViewController: CLLocationManagerDelegate {
+    
+    @IBAction func locationPressed(_ sender: UIButton) {
+        locationManager.requestLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
