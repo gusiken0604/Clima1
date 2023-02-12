@@ -36,15 +36,21 @@ struct WeatherManager {
             let session = URLSession(configuration:  .default)
               
             let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
+                if let error = error {
+                    delegate?.didFailWithError(error: error)
                     return
                 }
-                if let safeData = data {
-                    if let weather = self.parseJSON(safeData) {//元々(weatherData:safeData　)
-                        self.delegate?.didUpdateWeather(self,weather: weather)
-                }
-            }
+//                if error != nil {
+//                    self.delegate?.didFailWithError(error: error!)
+//                    return
+//                }
+                guard let safeData = data, let weather = self.parseJSON(safeData) else { return }
+                self.delegate?.didUpdateWeather(self,weather: weather)
+//                if let safeData = data {
+//                    if let weather = self.parseJSON(safeData) {//元々(weatherData:safeData　)
+//                        self.delegate?.didUpdateWeather(self,weather: weather)
+//                }
+//            }
             }
             task.resume()
         }
