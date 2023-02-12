@@ -46,12 +46,12 @@ extension WeatherViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        } else {
+        
+        guard !textField.text!.isEmpty else {
             textField.placeholder = "Type something"
             return false
         }
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -69,11 +69,11 @@ extension WeatherViewController: UITextFieldDelegate {
 extension WeatherViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
-        DispatchQueue.main.async {
+
             self.temperatureLabel.text = weather.temperatureString
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
-        }
+
     }
     
     func didFailWithError(error: Error) {
