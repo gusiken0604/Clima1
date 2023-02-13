@@ -31,29 +31,17 @@ struct WeatherManager {
     
     func performRequest(with urlString: String) {
         
-        if let url = URL(string: urlString) {
-            
-            let session = URLSession(configuration:  .default)
-              
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if let error = error {
-                    delegate?.didFailWithError(error: error)
-                    return
-                }
-//                if error != nil {
-//                    self.delegate?.didFailWithError(error: error!)
-//                    return
-//                }
-                guard let safeData = data, let weather = self.parseJSON(safeData) else { return }
-                self.delegate?.didUpdateWeather(self,weather: weather)
-//                if let safeData = data {
-//                    if let weather = self.parseJSON(safeData) {//元々(weatherData:safeData　)
-//                        self.delegate?.didUpdateWeather(self,weather: weather)
-//                }
-//            }
+        guard let url = URL(string: urlString) else { return }
+        let session = URLSession(configuration:  .default)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                delegate?.didFailWithError(error: error)
+                return
             }
-            task.resume()
+            guard let safeData = data, let weather = self.parseJSON(safeData) else { return }
+            self.delegate?.didUpdateWeather(self,weather: weather)
         }
+        task.resume()
     }
     
     func parseJSON(_ weatherData: Data) -> WeatherModel? {//アンダーバーを使って外部因数を省略する事によって37行目を簡略化できる
