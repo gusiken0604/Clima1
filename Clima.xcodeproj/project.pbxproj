@@ -15,7 +15,7 @@
 		ADAA27BD231BBFB300365194 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */; };
 		ADAA27CE231BC87F00365194 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27CD231BC87F00365194 /* README.md */; };
 		B232C3E029240B0B001B709E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232C3DF29240B0B001B709E /* WeatherModel.swift */; };
-		B253903A291EA1CC0076FBF6 /* WeatherManaager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2539039291EA1CC0076FBF6 /* WeatherManaager.swift */; };
+		B253903A291EA1CC0076FBF6 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2539039291EA1CC0076FBF6 /* WeatherManager.swift */; };
 		B282D346292137A700C1D77F /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282D345292137A700C1D77F /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		ADAA27BE231BBFB300365194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAA27CD231BC87F00365194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B232C3DF29240B0B001B709E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherModel.swift; path = Clima/WeatherModel.swift; sourceTree = SOURCE_ROOT; };
-		B2539039291EA1CC0076FBF6 /* WeatherManaager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManaager.swift; sourceTree = SOURCE_ROOT; };
+		B2539039291EA1CC0076FBF6 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = SOURCE_ROOT; };
 		B282D345292137A700C1D77F /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherData.swift; path = Clima/WeatherData.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -96,7 +96,7 @@
 		ADAA27CA231BC3FA00365194 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B2539039291EA1CC0076FBF6 /* WeatherManaager.swift */,
+				B2539039291EA1CC0076FBF6 /* WeatherManager.swift */,
 				B282D345292137A700C1D77F /* WeatherData.swift */,
 				B232C3DF29240B0B001B709E /* WeatherModel.swift */,
 			);
@@ -130,7 +130,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "App Brewery";
 				TargetAttributes = {
 					ADAA27AC231BBFAF00365194 = {
@@ -175,7 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B253903A291EA1CC0076FBF6 /* WeatherManaager.swift in Sources */,
+				B253903A291EA1CC0076FBF6 /* WeatherManager.swift in Sources */,
 				B282D346292137A700C1D77F /* WeatherData.swift in Sources */,
 				ADAA27B5231BBFAF00365194 /* WeatherViewController.swift in Sources */,
 				ADAA27B1231BBFAF00365194 /* AppDelegate.swift in Sources */,
@@ -232,6 +232,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -292,6 +293,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
